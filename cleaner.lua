@@ -1,0 +1,6 @@
+redis = (loadfile "redis.lua")()
+io.write("Enter Hobto ID : ")
+local last = io.read()
+io.popen('rm -rf ~/.telegram-cli/hobto-'..last..' hobto-'..last..'.lua hobto-'..last..'.sh hobto_'..last..'_logs.txt')
+redis:del('hobto:'..last..':*')
+print("Done!\nAll Data/Files Of Hobto Deleted\nHobto ID : "..last)
